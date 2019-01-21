@@ -25,4 +25,8 @@
     cat template_end.kml
 ) > ModelRailwayShops.kml
 
-zip ModelRailwayShops.kmz ModelRailwayShops.kml images/*
+if xmllint --noout ModelRailwayShops.kml; then
+    zip ModelRailwayShops.kmz ModelRailwayShops.kml images/*
+else
+    echo "There is an XML error to fix first"
+fi
